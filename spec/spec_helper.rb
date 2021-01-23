@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require "simplecov"
+SimpleCov.minimum_coverage 80
+SimpleCov.start
+
 require "oughta/rspec"
 require "support/validator_spec"
 
