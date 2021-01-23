@@ -4,6 +4,7 @@ module Oughta
   ##
   # Generate Shoulda matchers in the RSpec test format
   module RSpec
+    require_relative "rspec/macro"
     require_relative "rspec/validations"
   end
 end

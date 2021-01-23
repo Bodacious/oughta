@@ -7,16 +7,13 @@ module Oughta
       # Take an ActiveRecord::Validations::PresenceValidator and represent it as a
       # Shoulda RSpec String
       #
-      class PresenceValidator
+      class PresenceValidator < RSpec::Macro
         attr_reader :attribute, :options
 
         def initialize(attribute:, options: [])
+          super
           @attribute = attribute.to_sym
           @options = options
-        end
-
-        def to_shoulda
-          %(it { is_expected.to #{macro_call}#{options_method_chain} })
         end
 
         private
@@ -26,11 +23,8 @@ module Oughta
         end
 
         def options_method_chain
-          array = options.each_key.map { |key| send(:"option_string_for_#{key}") }
-          return "" if array.empty?
-
-          array.sort!
-          array.unshift("").join(".")
+          array = [""] + options.each_key.map { |key| send(:"option_string_for_#{key}") }
+          array.sort.join(".")
         end
 
         def option_string_for_allow_nil
