@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require "oughta"
+require "oughta/rspec"
+require "support/validator_spec"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
