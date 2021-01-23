@@ -14,7 +14,7 @@ module Oughta
         end
 
         def self.support_option(option_name)
-          supported_options << option_name
+          supported_options << option_name.to_sym
         end
 
         def self.supported_options
