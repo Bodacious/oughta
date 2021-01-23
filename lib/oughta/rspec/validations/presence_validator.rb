@@ -3,18 +3,14 @@
 module Oughta
   module RSpec
     module Validations
+      require_relative "validator"
       ##
       # Take an ActiveRecord::Validations::PresenceValidator and represent it as a
       # Shoulda RSpec String
       #
-      class PresenceValidator < RSpec::Macro
-        attr_reader :attribute, :options
+      class PresenceValidator < Validator
 
-        def initialize(attribute:, options: [])
-          super
-          @attribute = attribute.to_sym
-          @options = options
-        end
+        supports_options :allow_nil, :message, :on
 
         private
 
@@ -22,22 +18,6 @@ module Oughta
           "validate_presence_of(#{attribute.inspect})"
         end
 
-        def options_method_chain
-          array = [""] + options.each_key.map { |key| send(:"option_string_for_#{key}") }
-          array.sort.join(".")
-        end
-
-        def option_string_for_allow_nil
-          "allow_nil"
-        end
-
-        def option_string_for_message
-          "with_message(#{options[:message].inspect})"
-        end
-
-        def option_string_for_on
-          "on(#{options[:on].inspect})"
-        end
       end
     end
   end

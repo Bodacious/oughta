@@ -4,8 +4,13 @@ require "simplecov"
 SimpleCov.minimum_coverage 80
 SimpleCov.start
 
+require "byebug"
+
 require "oughta/rspec"
 require "support/validator_spec"
+Dir["spec/support/shared_contexts/**/*.rb"].each do |filepath|
+  require filepath.split("/")[1..-1].join("/")
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

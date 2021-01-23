@@ -8,7 +8,7 @@ module Oughta
       def initialize(*args); end
 
       def to_shoulda
-        %(it { is_expected.to #{macro_call}#{options_method_chain} })
+        %(it { should #{macro_call}#{options_method_chain} })
       end
 
       def macro_call
