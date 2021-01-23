@@ -9,7 +9,7 @@ require "byebug"
 require "oughta/rspec"
 require "support/validator_spec"
 Dir["spec/support/shared_contexts/**/*.rb"].each do |filepath|
-  require filepath.split("/")[1..-1].join("/")
+  require filepath.gsub(%r{\Aspec/}, "")
 end
 
 RSpec.configure do |config|

@@ -1,9 +1,14 @@
+# frozen_string_literal: true
+
+require_relative "validator"
+
 module Oughta
   module RSpec
     module Validations
-      require_relative "validator"
+      ##
+      # Take an ActiveRecord::Validations::NumericalityValidator and represent it as a
+      # Shoulda RSpec String
       class NumericalityValidator < Validator
-
         supports_options :allow_nil, :equal_to, :even, :greater_than,
                          :greater_than_or_equal_to, :less_than, :less_than_or_equal_to,
                          :message, :other_than, :on, :odd, :only_integer

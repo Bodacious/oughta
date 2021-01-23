@@ -4,7 +4,6 @@ require "spec_helper"
 
 RSpec.describe Oughta::RSpec::Validations::PresenceValidator, type: :validator do
   describe "#to_shoulda" do
-
     context "when no options provided" do
       let(:result_string) { "it { should validate_presence_of(:name) }" }
 

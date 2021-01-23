@@ -1,6 +1,6 @@
+# frozen_string_literal: true
 
 RSpec.shared_examples "it supports :allow_nil" do |macro|
-
   context "when :allow_nil option is true" do
     let(:result_string) do
       "it { should #{macro}(:name).allow_nil }"
@@ -20,8 +20,6 @@ RSpec.shared_examples "it supports :allow_nil" do |macro|
 
     it(&test_body)
   end
-
-
 end
 
 RSpec.shared_examples "it supports :on" do |macro|
@@ -44,7 +42,6 @@ RSpec.shared_examples "it supports :on" do |macro|
     it(&test_body)
   end
 end
-
 
 RSpec.shared_examples "it supports :message" do |macro|
   context "when :message option is set" do

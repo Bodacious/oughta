@@ -10,7 +10,7 @@ module Oughta
         attr_reader :attribute, :options
 
         def self.supports_options(*args)
-          args.each { |arg| self.support_option(arg) }
+          args.each { |arg| support_option(arg) }
         end
 
         def self.support_option(option_name)
