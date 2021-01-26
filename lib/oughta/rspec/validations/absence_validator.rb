@@ -10,12 +10,9 @@ module Oughta
       # a Shoulda RSpec String
       #
       class AbsenceValidator < Validator
-
-
-        MACRO_TEMPLATE = "validate_absence_of(:%{attribute})".freeze
+        MACRO_TEMPLATE = "validate_absence_of(:%{attribute})"
 
         supports_options :message, :on
-
       end
     end
   end

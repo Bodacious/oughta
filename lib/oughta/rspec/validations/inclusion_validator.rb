@@ -10,7 +10,7 @@ module Oughta
       # as a Shoulda RSpec String
       #
       class InclusionValidator < Validator
-        MACRO_TEMPLATE = "validate_inclusion_of(:%{attribute})".freeze
+        MACRO_TEMPLATE = "validate_inclusion_of(:%{attribute})"
 
         supports_options :allow_blank, :allow_nil, :message, :on
       end

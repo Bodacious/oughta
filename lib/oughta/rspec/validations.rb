@@ -6,7 +6,7 @@ module Oughta
     # Decorators for Shouda validation matchers
     module Validations
       Dir["#{__dir__}/validations/*_validator.rb"].each do |validator|
-        require_relative "#{validator}"
+        require_relative validator.to_s
       end
     end
   end

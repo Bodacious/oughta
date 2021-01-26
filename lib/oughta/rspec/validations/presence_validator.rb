@@ -12,7 +12,7 @@ module Oughta
       class PresenceValidator < Validator
         ##
         #
-        MACRO_TEMPLATE ="validate_presence_of(:%{attribute})"
+        MACRO_TEMPLATE = "validate_presence_of(:%{attribute})"
 
         supports_options :allow_nil, :message, :on
       end

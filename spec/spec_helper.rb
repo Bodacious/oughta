@@ -9,7 +9,7 @@ require "byebug"
 require "oughta/rspec"
 require "support/validator_spec"
 
-Dir["#{__dir__}/support/shared_examples/**/*.rb"].each do |filepath|  
+Dir["#{__dir__}/support/shared_examples/**/*.rb"].each do |filepath|
   require filepath.gsub(%r{\Aspec/}, "")
 end
 

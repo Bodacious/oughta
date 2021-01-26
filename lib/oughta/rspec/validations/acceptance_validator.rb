@@ -10,12 +10,9 @@ module Oughta
       # as a Shoulda RSpec String
       #
       class AcceptanceValidator < Validator
-
-
-        MACRO_TEMPLATE = "validate_acceptance_of(:%{attribute})".freeze
+        MACRO_TEMPLATE = "validate_acceptance_of(:%{attribute})"
 
         supports_options :message, :on
-
       end
     end
   end

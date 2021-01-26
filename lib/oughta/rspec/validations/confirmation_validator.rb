@@ -10,7 +10,7 @@ module Oughta
       # it as a Shoulda RSpec String.
       #
       class ConfirmationValidator < Validator
-        MACRO_TEMPLATE = "validate_confirmation_of(:%{attribute})".freeze
+        MACRO_TEMPLATE = "validate_confirmation_of(:%{attribute})"
 
         supports_options :message, :on
       end

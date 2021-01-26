@@ -47,13 +47,13 @@ module Oughta
         end
 
         def macro_call
-          self.class.const_get("MACRO_TEMPLATE") % { attribute: attribute }
+          format(self.class.const_get("MACRO_TEMPLATE"), attribute: attribute)
         end
 
         def option_string_for_allow_blank
           "allow_blank" if options[:allow_blank]
         end
-        
+
         def option_string_for_allow_nil
           "allow_nil" if options[:allow_nil]
         end
