@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe Oughta::RSpec::Validations::ConfirmationValidator, type: :validator do
+  describe "#to_shoulda" do
+    context "when no options provided" do
+      let(:result_string) { "it { should validate_confirmation_of(:name) }" }
+
+      it(&test_body)
+    end
+
+    it_behaves_like "it supports :on", "validate_confirmation_of"
+
+    it_behaves_like "it supports :message", "validate_confirmation_of"
+  end
+end

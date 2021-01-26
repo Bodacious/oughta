@@ -5,8 +5,9 @@ module Oughta
     ##
     # Decorators for Shouda validation matchers
     module Validations
-      require_relative "validations/numericality_validator"
-      require_relative "validations/presence_validator"
+      Dir["#{__dir__}/validations/*_validator.rb"].each do |validator|
+        require_relative "#{validator}"
+      end
     end
   end
 end

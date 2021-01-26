@@ -9,15 +9,14 @@ module Oughta
       # Take an ActiveRecord::Validations::NumericalityValidator and represent it as a
       # Shoulda RSpec String
       class NumericalityValidator < Validator
+
+        MACRO_TEMPLATE = "validate_numericality_of(:%{attribute})"
+
         supports_options :allow_nil, :equal_to, :even, :greater_than,
                          :greater_than_or_equal_to, :less_than, :less_than_or_equal_to,
                          :message, :other_than, :on, :odd, :only_integer
 
         private
-
-        def macro_call
-          "validate_numericality_of(#{attribute.inspect})"
-        end
 
         def option_string_for_equal_to
           "is_equal_to(#{options[:equal_to]})"

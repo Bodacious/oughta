@@ -46,6 +46,10 @@ module Oughta
           array.compact.sort.join(".")
         end
 
+        def macro_call
+          self.class.const_get("MACRO_TEMPLATE") % { attribute: attribute }
+        end
+
         def option_string_for_allow_nil
           "allow_nil" if options[:allow_nil]
         end
