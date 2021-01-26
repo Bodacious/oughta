@@ -33,6 +33,10 @@ module Oughta
 
         private
 
+        def template_constant_get(name)
+          self.class.const_get("#{name}_TEMPLATE")
+        end
+
         def options_method_chain
           array = options.each_key.map do |key|
             if self.class.supports_option?(key)
@@ -47,7 +51,7 @@ module Oughta
         end
 
         def macro_call
-          format(self.class.const_get("MACRO_TEMPLATE"), attribute: attribute)
+          self.class.const_get("MACRO_TEMPLATE") % { attribute: attribute }
         end
 
         def option_string_for_allow_blank

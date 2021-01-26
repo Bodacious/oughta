@@ -1,6 +1,10 @@
 AllCops:
   NewCops: enable
 
+Style/FormatString:
+  Enabled: true
+  EnforcedStyle: percent
+
 Style/FormatStringToken:
   Enabled: false
 
