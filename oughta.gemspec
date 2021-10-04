@@ -32,8 +32,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_development_dependency "activerecord", "> 6.0"
-  spec.add_development_dependency "activesupport", "> 6.0"
+  spec.add_development_dependency "activerecord", ">= 6.0"
+  spec.add_development_dependency "activesupport", ">= 6.0"
   spec.add_development_dependency "bundler-audit", "~> 0.7.0.1"
   spec.add_development_dependency "byebug", "~> 11.1.3"
   spec.add_development_dependency "rake", "~> 13.0.3"
