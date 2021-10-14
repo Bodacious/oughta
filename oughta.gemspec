@@ -42,7 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop-rspec", "~> 1.44.1"
   spec.add_development_dependency "simplecov", "~> 0.21.2"
   spec.add_development_dependency "sqlite3", "~> 1.4.2"
-
+  spec.add_development_dependency "guard-rspec"
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
 end

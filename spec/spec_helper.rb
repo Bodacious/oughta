@@ -7,6 +7,7 @@ SimpleCov.start
 require "byebug"
 
 require "oughta/rspec"
+require "support/association_spec"
 require "support/validator_spec"
 
 Dir["#{__dir__}/support/shared_examples/**/*.rb"].each do |filepath|
