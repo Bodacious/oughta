@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "validator"
 
 module Oughta
   module RSpec
+    require_relative "validator"
     module Validations
       ##
       # Take an ActiveRecord::Validations::NumericalityValidator and represent it as a

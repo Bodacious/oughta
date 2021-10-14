@@ -2,15 +2,16 @@
 
 require "active_support/concern"
 
-module ValidatorSpec
+module AssociationSpec
   extend ActiveSupport::Concern
 
   included do
-    subject { described_class.new(attribute: attribute, options: options).to_shoulda }
+    subject do
+      described_class.new(association_name: association_name,
+                          options: options).to_shoulda
+    end
 
-    let(:attributes) { [:name] }
-
-    let(:attribute) { attributes.first }
+    let(:association_name) { :test_class }
 
     let(:options) { {} }
   end
@@ -27,5 +28,5 @@ module ValidatorSpec
 end
 
 RSpec.configure do |config|
-  config.include(ValidatorSpec, type: :validator)
+  config.include(AssociationSpec, type: :association)
 end

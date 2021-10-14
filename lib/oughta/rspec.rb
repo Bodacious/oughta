@@ -6,5 +6,6 @@ module Oughta
   module RSpec
     require_relative "rspec/macro"
     require_relative "rspec/validations"
+    require_relative "rspec/associations"
   end
 end
