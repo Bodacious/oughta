@@ -21,7 +21,6 @@ module ValidatorSpec
 
   module ClassMethods
     def test_body
-      puts "I'm test body\n\nabsent_string is defiend as #{defined?(absent_string)}"
       proc do
         if defined?(absent_string)
           expect(subject).not_to include(absent_string)

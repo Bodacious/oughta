@@ -10,6 +10,7 @@ require "oughta/rspec"
 require "support/association_spec"
 require "support/validator_spec"
 require "support/matchers"
+require "support/generators"
 
 Dir["#{__dir__}/support/shared_examples/**/*.rb"].each do |filepath|
   require filepath.gsub(%r{\Aspec/}, "")

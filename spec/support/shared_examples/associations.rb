@@ -22,20 +22,16 @@ RSpec.shared_examples "it supports :foreign_key" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :polymorphic" do |macro|
+RSpec.shared_examples "it supports :polymorphic" do |_macro|
   # It doesnt' change
   context "when :polymorphic option is true" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class) }"
-    end
+    let(:absent_string) { "polymorphic" }
 
     it(&test_body)
   end
   # It doesnt' change
   context "when :polymorphic option is false" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class) }"
-    end
+    let(:absent_string) { "polymorphic" }
 
     it(&test_body)
   end
@@ -103,11 +99,9 @@ RSpec.shared_examples "it supports :counter_cache" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :touch" do |macro|
+RSpec.shared_examples "it supports :touch" do |_macro|
   context "when :touch is true" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).touch(true) }"
-    end
+    let(:result_string) { ".touch(true)" }
 
     let(:options) { { touch: true } }
 
@@ -115,9 +109,7 @@ RSpec.shared_examples "it supports :touch" do |macro|
   end
 
   context "when :touch is false" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).touch(false) }"
-    end
+    let(:result_string) { ".touch(false)" }
 
     let(:options) { { touch: false } }
 
@@ -125,20 +117,16 @@ RSpec.shared_examples "it supports :touch" do |macro|
   end
 end
 
-RSpec.shared_examples "it supports :autosave" do |macro|
+RSpec.shared_examples "it supports :autosave" do |_macro|
   context "when :autosave is true" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).autosave(true) }"
-    end
+    let(:result_string) { ".autosave(true)" }
 
     let(:options) { { autosave: true } }
 
     it(&test_body)
   end
   context "when :autosave is false" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).autosave(false) }"
-    end
+    let(:result_string) { ".autosave(false)" }
 
     let(:options) { { autosave: false } }
 
@@ -146,11 +134,9 @@ RSpec.shared_examples "it supports :autosave" do |macro|
   end
 end
 
-RSpec.shared_examples "it supports :inverse_of" do |macro|
+RSpec.shared_examples "it supports :inverse_of" do |_macro|
   context "when :inverse_of is set" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).inverse_of(:test_class) }"
-    end
+    let(:result_string) { ".inverse_of(:test_class)" }
 
     let(:options) { { inverse_of: :test_class } }
 
@@ -158,20 +144,16 @@ RSpec.shared_examples "it supports :inverse_of" do |macro|
   end
 end
 
-RSpec.shared_examples "it supports :required" do |macro|
+RSpec.shared_examples "it supports :required" do |_macro|
   context "when :required is true" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).required }"
-    end
+    let(:result_string) { ".required" }
 
     let(:options) { { required: true } }
 
     it(&test_body)
   end
   context "when :required is false" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).optional }"
-    end
+    let(:result_string) { ".optional" }
 
     let(:options) { { required: false } }
 
@@ -179,22 +161,89 @@ RSpec.shared_examples "it supports :required" do |macro|
   end
 end
 
-RSpec.shared_examples "it supports :optional" do |macro|
+RSpec.shared_examples "it supports :optional" do |_macro|
   context "when :optional is true" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).optional }"
-    end
+    let(:result_string) { ".optional" }
 
     let(:options) { { optional: true } }
 
     it(&test_body)
   end
   context "when :optional is false" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).required }"
-    end
+    let(:result_string) { ".required" }
 
     let(:options) { { optional: false } }
+
+    it(&test_body)
+  end
+end
+
+RSpec.shared_examples "it supports :through" do |_macro|
+  context "when :through is present" do
+    let(:result_string) { ".through(:join_class)" }
+
+    let(:options) { { through: :join_class } }
+
+    it(&test_body)
+  end
+end
+
+RSpec.shared_examples "it supports :source" do |_macro|
+  context "when :through is present" do
+    let(:result_string) { ".source(:test_model)" }
+
+    let(:options) { { source: :test_model } }
+
+    it(&test_body)
+  end
+end
+
+RSpec.shared_examples "it supports :validate" do |_macro|
+  context "when :validate is not present" do
+    let(:absent_string) { ".validate" }
+
+    let(:options) { {} }
+
+    it(&test_body)
+  end
+  context "when :validate is false" do
+    let(:result_string) { ".validate(false)" }
+
+    let(:options) { { validate: false } }
+
+    it(&test_body)
+  end
+
+  context "when :validate is not present" do
+    let(:result_string) { ".validate(true)" }
+
+    let(:options) { { validate: true } }
+
+    it(&test_body)
+  end
+end
+
+RSpec.shared_examples "it supports :index_errors" do |_macro|
+  context "when :index_errors is not present" do
+    let(:absent_string) { ".index_errors" }
+
+    let(:options) { {} }
+
+    it(&test_body)
+  end
+
+  context "when :index_errors is true" do
+    let(:result_string) { ".index_errors(true)" }
+
+    let(:options) { { index_errors: true } }
+
+    it(&test_body)
+  end
+
+  context "when :index_errors is false" do
+    let(:result_string) { ".index_errors(false)" }
+
+    let(:options) { { index_errors: false } }
 
     it(&test_body)
   end

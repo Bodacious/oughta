@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
-module Matchers
-  module AssociationMatchers
-    extend RSpec::Matchers::DSL
+module Oughta
+  module Specs
+    module Matchers
+      module AssociationMatchers
+        rspec = ::RSpec
+        extend rspec::Matchers::DSL
+      end
+    end
   end
 end

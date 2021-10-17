@@ -5,8 +5,8 @@ module Oughta
     module Associations
       require_relative "association"
 
-      class BelongsToAssociation < Association
-        MACRO_TEMPLATE = "belong_to(:%{association_name})"
+      class HasManyAssociation < Association
+        MACRO_TEMPLATE = "have_many(:%{association_name})"
 
         supports_options :class_name,
                          :foreign_key,
@@ -17,13 +17,35 @@ module Oughta
                          :touch,
                          :autosave,
                          :inverse_of,
-                         :required,
-                         :optional
+                         :through,
+                         :source,
+                         :index_errors,
+                         :validate
 
         private
 
+        def option_string_for_through
+          "through(#{options[:through].inspect})"
+        end
+
+        def option_string_for_source
+          "source(#{options[:source].inspect})"
+        end
+
+        def option_string_for_validate
+          "validate(#{options[:validate]})"
+        end
+
+        def index_errors
+          "index_errors(#{options[:index_errors]})"
+        end
+
         def option_string_for_polymorphic
           ""
+        end
+
+        def option_string_for_dependent
+          "dependent(:#{options[:dependent]})"
         end
 
         def option_string_for_primary_key
@@ -56,10 +78,6 @@ module Oughta
           else
             "required"
           end
-        end
-
-        def option_string_for_inverse_of
-          "inverse_of(#{options[:inverse_of].inspect})"
         end
       end
     end

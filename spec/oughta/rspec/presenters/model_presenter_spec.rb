@@ -10,22 +10,20 @@ RSpec.describe Oughta::RSpec::Presenters::ModelPresenter, type: :presenter do
   end
 
   before do
-    ActiveRecord::Base.connection.instance_eval do
-      create_table(:users, force: true) do |t|
-        t.string :name
-        t.string :age
-        t.string :honeypot
-        t.string :password
-        t.string :values
-      end
-    end
+    rebuild_database
   end
 
   let(:test_model) do
     Class.new(ActiveRecord::Base) do
+      self.table_name = "oughta_users"
       def self.name
         "User"
       end
+
+      has_many :things, dependent: :destroy
+
+      belongs_to :test_class, required: true
+
       validates :honeypot, absence: true
 
       validates :terms, acceptance: true
@@ -44,8 +42,8 @@ RSpec.describe Oughta::RSpec::Presenters::ModelPresenter, type: :presenter do
     end
   end
 
-  describe "#to_rspec" do
-    subject { Oughta::RSpec::Presenters::ModelPresenter.new(test_model).to_rspec }
+  describe "#rspec_validation_assertions" do
+    subject { described_class.new(test_model).rspec_validation_assertions }
 
     it { is_expected.to include("should validate_absence_of(:honeypot)") }
 
@@ -74,5 +72,13 @@ RSpec.describe Oughta::RSpec::Presenters::ModelPresenter, type: :presenter do
     }
 
     it { is_expected.to include("should validate_presence_of(:name)") }
+  end
+
+  describe "#rspec_association_assertions" do
+    subject { described_class.new(test_model).rspec_association_assertions }
+
+    it { is_expected.to include("should belong_to(:test_class).required") }
+
+    it { is_expected.to include("should have_many(:things).dependent(:destroy)") }
   end
 end

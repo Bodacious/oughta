@@ -17,12 +17,24 @@ module Oughta
 
         private
 
+        def option_string_for_index_errors
+          "index_errors(#{options[:index_errors]})"
+        end
+
         def option_string_for_class_name
           "class_name(:#{options[:class_name]})"
         end
 
         def option_string_for_foreign_key
           "with_foreign_key(:#{options[:foreign_key]})"
+        end
+
+        def option_string_for_dependent
+          "dependent(:#{options[:dependent]})"
+        end
+
+        def option_string_for_inverse_of
+          "inverse_of(#{options[:inverse_of].inspect})"
         end
       end
     end

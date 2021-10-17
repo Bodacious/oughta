@@ -22,7 +22,13 @@ module AssociationSpec
 
   module ClassMethods
     def test_body
-      proc { expect(subject).to include(result_string) }
+      proc do
+        if defined?(absent_string)
+          expect(subject).not_to include(absent_string)
+        else
+          expect(subject).to include(result_string)
+        end
+      end
     end
   end
 end
