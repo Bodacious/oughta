@@ -2,7 +2,7 @@
 
 require "active_support/core_ext/string"
 
-RSpec.shared_examples "it supports :class_name" do |macro|
+RSpec.shared_examples "it supports :class_name" do |_macro|
   context "when :class_name option is provided" do
     let(:result_string) { ".class_name(:TestClass)" }
 
@@ -12,7 +12,7 @@ RSpec.shared_examples "it supports :class_name" do |macro|
   end
 end
 
-RSpec.shared_examples "it supports :foreign_key" do |macro|
+RSpec.shared_examples "it supports :foreign_key" do |_macro|
   context "when :with_foreign_key option is provided" do
     let(:result_string) { ".with_foreign_key(:test_class_id) }" }
 
@@ -41,7 +41,7 @@ RSpec.shared_examples "it supports :polymorphic" do |macro|
   end
 end
 
-RSpec.shared_examples "it supports :primary_key" do |macro|
+RSpec.shared_examples "it supports :primary_key" do |_macro|
   context "when :primary_key option is set" do
     let(:result_string) { ".with_primary_key(:test)" }
 
@@ -51,9 +51,8 @@ RSpec.shared_examples "it supports :primary_key" do |macro|
   end
 end
 
-RSpec.shared_examples "it supports :dependent" do |macro|
+RSpec.shared_examples "it supports :dependent" do |_macro|
   context "when :dependent option is set to :destroy" do
-
     let(:result_string) { ".dependent(:destroy)" }
 
     let(:options) { { dependent: :destroy } }
@@ -70,7 +69,7 @@ RSpec.shared_examples "it supports :dependent" do |macro|
   end
 end
 
-RSpec.shared_examples "it supports :counter_cache" do |macro|
+RSpec.shared_examples "it supports :counter_cache" do |_macro|
   context "when :counter_cache is true" do
     let(:result_string) { ".counter_cache(true)" }
 

@@ -4,17 +4,14 @@ require "spec_helper"
 
 RSpec.describe Oughta::RSpec::Validations::UniquenessValidator, type: :validator do
   describe "#to_shoulda" do
-
-    let(:result_string) {
+    let(:result_string) do
       "it { should validate_uniqueness_of(:name).case_sensitive }"
-    }
+    end
 
     let(:default_options) { { case_sensitive: true } }
 
     context "when no options provided" do
-
       it(&test_body)
-
     end
 
     it_behaves_like "it supports :case_sensitive", "validate_uniqueness_of"
