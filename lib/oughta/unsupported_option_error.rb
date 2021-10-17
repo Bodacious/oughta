@@ -2,11 +2,13 @@
 
 module Oughta
   class UnsupportedOptionError < StandardError
-    attr_reader :missing_option, :class_name
+    attr_reader :missing_option
+    attr_reader :class_name
 
     def initialize(missing_option, class_name)
       @missing_option = missing_option
       @class_name = class_name
+      super(message)
     end
 
     def message

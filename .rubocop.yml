@@ -17,6 +17,10 @@ Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
 
+Style/AccessorGrouping:
+  Enabled: true
+  EnforcedStyle: separated
+
 Layout/LineLength:
   Max: 90
 

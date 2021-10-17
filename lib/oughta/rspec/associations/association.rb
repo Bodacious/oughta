@@ -4,11 +4,11 @@ module Oughta
   module RSpec
     module Associations
       class Association < RSpec::Macro
-        attr_reader :association_name, :options
+        attr_reader :association_name
 
         def initialize(association_name:, options: [])
+          super(options: options)
           @association_name = association_name.to_sym
-          @options = options
         end
 
         def macro_call

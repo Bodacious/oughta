@@ -10,11 +10,8 @@ module Oughta
         attr_reader :attribute
 
         def initialize(attribute:, options: {})
+          super(options: options)
           @attribute = attribute.to_sym
-          options = Hash(options).reject do |key, _value|
-            self.class.ignored_options.include?(key.to_sym)
-          end
-          @options = self.class.default_options.merge(options)
         end
 
         private

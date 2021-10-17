@@ -4,7 +4,7 @@ RSpec.shared_examples "it supports :allow_nil" do |_macro|
   context "when :allow_nil option is not set" do
     let!(:absent_string) { ".allow_nil" }
 
-    let(:options) {}
+    let(:options) { {} }
 
     it(&test_body)
   end

@@ -6,9 +6,6 @@ module Oughta
     # Base class for all RSpec Macros
     class Macro
       require_relative "../unsupported_option_error"
-      
-      def initialize(...)
-      end
 
       attr_reader :options
 
@@ -44,6 +41,13 @@ module Oughta
 
       def self.supports_option?(option_name)
         supported_options.include?(option_name.to_sym)
+      end
+
+      def initialize(options:)
+        options = Hash(options).reject do |key, _value|
+          self.class.ignored_options.include?(key.to_sym)
+        end
+        @options = self.class.default_options.merge(options)
       end
 
       def to_shoulda
