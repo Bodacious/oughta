@@ -22,7 +22,7 @@ module AssociationSpec
 
   module ClassMethods
     def test_body
-      proc { expect(subject).to eql(result_string) }
+      proc { expect(subject).to include(result_string) }
     end
   end
 end

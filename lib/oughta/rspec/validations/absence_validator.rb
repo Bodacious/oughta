@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 module Oughta
   module RSpec
     require_relative "validator"

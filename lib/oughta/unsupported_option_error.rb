@@ -1,9 +1,8 @@
+# frozen_string_literal: true
+
 module Oughta
   class UnsupportedOptionError < StandardError
-
-    attr_reader :missing_option
-
-    attr_reader :class_name
+    attr_reader :missing_option, :class_name
 
     def initialize(missing_option, class_name)
       @missing_option = missing_option

@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-
 module Oughta
   module RSpec
-    require_relative "validator"
     module Validations
+      require_relative "validator"
       ##
       # Take an ActiveRecord::Validations::PresenceValidator and represent it as a
       # Shoulda RSpec String

@@ -8,15 +8,13 @@ Gem::Specification.new do |spec|
   spec.name          = "oughta"
   spec.version       = Oughta::VERSION
   spec.authors       = ["bodacious"]
-  spec.email         = ["gavin@katanacode.com"]
+  spec.email         = ["gavin@gavinmorrice.com"]
 
   spec.summary       = "wip: Come back here in a few days"
   spec.description   = "Automatically generate shoulda-rspec tests"
-  spec.homepage      = "https://github.com/katanacode/oughta"
+  spec.homepage      = "https://github.com/Bodacious/oughta"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
-
-  # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.5")
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
@@ -31,18 +29,18 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Uncomment to register a new dependency of your gem
+  spec.add_dependency "rails"
+  spec.add_dependency "thor"
+
   spec.add_development_dependency "activerecord", ">= 6.0"
   spec.add_development_dependency "activesupport", ">= 6.0"
   spec.add_development_dependency "bundler-audit", "~> 0.7.0.1"
   spec.add_development_dependency "byebug", "~> 11.1.3"
+  spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "rake", "~> 13.0.3"
   spec.add_development_dependency "rspec", "~> 3.10.0"
   spec.add_development_dependency "rubocop", "~> 0.92.0"
   spec.add_development_dependency "rubocop-rspec", "~> 1.44.1"
   spec.add_development_dependency "simplecov", "~> 0.21.2"
   spec.add_development_dependency "sqlite3", "~> 1.4.2"
-  spec.add_development_dependency "guard-rspec"
-  # For more information and examples about making a new gem, checkout our
-  # guide at: https://bundler.io/guides/creating_gem.html
 end

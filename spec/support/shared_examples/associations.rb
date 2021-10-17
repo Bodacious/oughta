@@ -1,11 +1,10 @@
 # frozen_string_literal: true
+
 require "active_support/core_ext/string"
 
 RSpec.shared_examples "it supports :class_name" do |macro|
   context "when :class_name option is provided" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).class_name(:TestClass) }"
-    end
+    let(:result_string) { ".class_name(:TestClass)" }
 
     let(:options) { { class_name: :TestClass } }
 
@@ -15,9 +14,7 @@ end
 
 RSpec.shared_examples "it supports :foreign_key" do |macro|
   context "when :with_foreign_key option is provided" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).with_foreign_key(:test_class_id) }"
-    end
+    let(:result_string) { ".with_foreign_key(:test_class_id) }" }
 
     let(:options) { { foreign_key: "test_class_id" } }
 
@@ -26,6 +23,7 @@ RSpec.shared_examples "it supports :foreign_key" do |macro|
 end
 
 RSpec.shared_examples "it supports :polymorphic" do |macro|
+  # It doesnt' change
   context "when :polymorphic option is true" do
     let(:result_string) do
       "it { should #{macro}(:test_class) }"
@@ -33,7 +31,7 @@ RSpec.shared_examples "it supports :polymorphic" do |macro|
 
     it(&test_body)
   end
-
+  # It doesnt' change
   context "when :polymorphic option is false" do
     let(:result_string) do
       "it { should #{macro}(:test_class) }"
@@ -45,9 +43,7 @@ end
 
 RSpec.shared_examples "it supports :primary_key" do |macro|
   context "when :primary_key option is set" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).with_primary_key(:test) }"
-    end
+    let(:result_string) { ".with_primary_key(:test)" }
 
     let(:options) { { primary_key: :test } }
 
@@ -58,33 +54,25 @@ end
 RSpec.shared_examples "it supports :dependent" do |macro|
   context "when :dependent option is set to :destroy" do
 
-    let(:options) { { dependent: :destroy } }
+    let(:result_string) { ".dependent(:destroy)" }
 
-    let(:result_string) do
-      "it { should #{macro}(:test_class).dependent(:destroy) }"
-    end
+    let(:options) { { dependent: :destroy } }
 
     it(&test_body)
   end
 
   context "when :dependent option is set to :delete" do
+    let(:result_string) { ".dependent(:delete)" }
 
     let(:options) { { dependent: :delete } }
-
-    let(:result_string) do
-      "it { should #{macro}(:test_class).dependent(:delete) }"
-    end
 
     it(&test_body)
   end
 end
 
-
 RSpec.shared_examples "it supports :counter_cache" do |macro|
   context "when :counter_cache is true" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).counter_cache(true) }"
-    end
+    let(:result_string) { ".counter_cache(true)" }
 
     let(:options) { { counter_cache: true } }
 
@@ -92,9 +80,7 @@ RSpec.shared_examples "it supports :counter_cache" do |macro|
   end
 
   context "when :counter_cache is false" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).counter_cache(false) }"
-    end
+    let(:result_string) { ".counter_cache(false)" }
 
     let(:options) { { counter_cache: false } }
 
@@ -102,9 +88,7 @@ RSpec.shared_examples "it supports :counter_cache" do |macro|
   end
 
   context "when :counter_cache is a Symbol" do
-    let(:result_string) do
-      "it { should #{macro}(:test_class).counter_cache(:some_col_count) }"
-    end
+    let(:result_string) { ".counter_cache(:some_col_count)" }
 
     let(:options) { { counter_cache: :some_col_count } }
 
@@ -112,9 +96,7 @@ RSpec.shared_examples "it supports :counter_cache" do |macro|
   end
 
   context "when :counter_cache is a String" do
-    let(:result_string) do
-      %Q{it { should #{macro}(:test_class).counter_cache("some_col_count") }}
-    end
+    let(:result_string) { '.counter_cache("some_col_count")' }
 
     let(:options) { { counter_cache: "some_col_count" } }
 

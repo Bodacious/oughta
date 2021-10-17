@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 module Oughta
   module RSpec
     module Associations
       class Association < RSpec::Macro
-
         attr_reader :association_name, :options
 
         def initialize(association_name:, options: [])

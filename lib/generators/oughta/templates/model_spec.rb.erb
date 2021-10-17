@@ -1,0 +1,7 @@
+rquire "rails_helper"
+
+RSpec.describe <%= class_name %>, type: :model do
+
+  <%= Oughta::RSpec::Presenters::ModelPresenter.new(test_class) %>
+  
+end

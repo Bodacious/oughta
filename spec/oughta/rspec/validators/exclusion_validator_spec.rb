@@ -10,6 +10,8 @@ RSpec.describe Oughta::RSpec::Validations::ExclusionValidator, type: :validator 
       it(&test_body)
     end
 
+    it_behaves_like "it supports :in array", "validate_exclusion_of"
+
     it_behaves_like "it supports :on", "validate_exclusion_of"
 
     it_behaves_like "it supports :message", "validate_exclusion_of"

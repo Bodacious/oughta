@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 module Oughta
   module RSpec
     require_relative "validator"
@@ -12,7 +11,8 @@ module Oughta
       class AcceptanceValidator < Validator
         MACRO_TEMPLATE = "validate_acceptance_of(:%{attribute})"
 
-        supports_options :message, :on
+        ignores_options :accept
+        supports_options :message, :on, :allow_nil
       end
     end
   end

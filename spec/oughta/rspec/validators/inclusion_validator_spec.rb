@@ -16,6 +16,8 @@ RSpec.describe Oughta::RSpec::Validations::InclusionValidator, type: :validator 
 
     it_behaves_like "it supports :on", "validate_inclusion_of"
 
+    it_behaves_like "it supports :in", "validate_inclusion_of"
+
     it_behaves_like "it supports :message", "validate_inclusion_of"
   end
 end

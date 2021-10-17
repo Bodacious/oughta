@@ -1,5 +1,6 @@
 AllCops:
   NewCops: enable
+  TargetRubyVersion: 2.5
 
 Style/FormatString:
   Enabled: true
@@ -21,5 +22,9 @@ Layout/LineLength:
 
 Metrics/BlockLength:
   Exclude:
-    - '*.gemspec'
+    - '*/schema.rb'
+    - 'oughta.gemspec'
     - 'spec/**/*'
+
+Style/Documentation:
+  Enabled: false

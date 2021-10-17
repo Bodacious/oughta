@@ -21,7 +21,14 @@ module ValidatorSpec
 
   module ClassMethods
     def test_body
-      proc { expect(subject).to eql(result_string) }
+      puts "I'm test body\n\nabsent_string is defiend as #{defined?(absent_string)}"
+      proc do
+        if defined?(absent_string)
+          expect(subject).not_to include(absent_string)
+        else
+          expect(subject).to include(result_string)
+        end
+      end
     end
   end
 end
