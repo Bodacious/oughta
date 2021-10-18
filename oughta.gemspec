@@ -10,8 +10,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["bodacious"]
   spec.email         = ["gavin@gavinmorrice.com"]
 
-  spec.summary       = "wip: Come back here in a few days"
-  spec.description   = "Automatically generate shoulda-rspec tests"
+  spec.summary       = "Automatically generate missing unit tests for Rails models."
+  spec.description   = <<~TEXT
+    Automatically generate missing unit tests for Rails models using rspec and shoulda
+  TEXT
   spec.homepage      = "https://github.com/Bodacious/oughta"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.5")
@@ -30,8 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rails"
-  spec.add_dependency "thor"
-
+  
   spec.add_development_dependency "activerecord", ">= 6.0"
   spec.add_development_dependency "activesupport", ">= 6.0"
   spec.add_development_dependency "bundler-audit", "~> 0.7.0.1"
