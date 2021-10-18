@@ -84,7 +84,7 @@ Or install it yourself as:
 To generate specs for a model, use the following command:
 
 ```
-rails g oughta:model_spec [YourModel]
+$ rails g oughta:model_spec [YourModel]
 ```
 
 ## Feature requests
