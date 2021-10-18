@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "it supports :allow_nil" do |_macro|
+RSpec.shared_examples "it supports :allow_nil" do
   context "when :allow_nil option is not set" do
     let!(:absent_string) { ".allow_nil" }
 
@@ -26,7 +26,7 @@ RSpec.shared_examples "it supports :allow_nil" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :allow_blank" do |_macro|
+RSpec.shared_examples "it supports :allow_blank" do
   context "when :allow_blank option is not set" do
     let(:absent_string) { ".allow_blank" }
 
@@ -52,7 +52,7 @@ RSpec.shared_examples "it supports :allow_blank" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :on" do |_macro|
+RSpec.shared_examples "it supports :on" do
   context "when :on option is :create" do
     let(:result_string) { ".on(:create)" }
 
@@ -69,7 +69,7 @@ RSpec.shared_examples "it supports :on" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :message" do |_macro|
+RSpec.shared_examples "it supports :message" do
   context "when :message option is set" do
     let(:result_string) { %{.with_message("Foo Bar")} }
 
@@ -79,9 +79,8 @@ RSpec.shared_examples "it supports :message" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :in" do |_macro|
+RSpec.shared_examples "it supports :in" do
   context "when :in option is a range" do
-    # let(:result_string) { ".is_at_least(#{1}).is_at_most(#{3})" }
     let(:result_string) { ".in_range(#{options[:in]})" }
 
     let(:options) { { in: (1..3) } }
@@ -90,7 +89,7 @@ RSpec.shared_examples "it supports :in" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :scope" do |_macro|
+RSpec.shared_examples "it supports :scope" do
   context "when :scope is set" do
     let(:result_string) { ".scoped_to(:test_model_id)" }
 
@@ -100,7 +99,7 @@ RSpec.shared_examples "it supports :scope" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :in array" do |_macro|
+RSpec.shared_examples "it supports :in array" do
   context "when :in option is set" do
     let(:result_string) { %{.in_range(["one", "two"])} }
 
@@ -110,7 +109,7 @@ RSpec.shared_examples "it supports :in array" do |_macro|
   end
 end
 
-RSpec.shared_examples "it supports :case_sensitive" do |_macro|
+RSpec.shared_examples "it supports :case_sensitive" do
   context "when :case_sensitive option is not set" do
     let(:absent_string) { ".case_sensitive" }
 
@@ -119,7 +118,7 @@ RSpec.shared_examples "it supports :case_sensitive" do |_macro|
     it(&test_body)
   end
   context "when :case_sensitive option is set true" do
-    let(:result_string) { ".case_sensitive" }
+    let(:absent_string) { ".case_sensitive" }
 
     let(:options) { { case_sensitive: true } }
 

@@ -6,7 +6,7 @@ RSpec.describe Oughta::RSpec::Validations::ConfirmationValidator, type: :validat
   describe "#to_shoulda" do
     context "when no options provided" do
       let(:result_string) do
-        "it { should validate_confirmation_of(:name).case_sensitive }"
+        "it { should validate_confirmation_of(:name) }"
       end
 
       it(&test_body)
@@ -15,7 +15,5 @@ RSpec.describe Oughta::RSpec::Validations::ConfirmationValidator, type: :validat
     it_behaves_like "it supports :on", "validate_confirmation_of"
 
     it_behaves_like "it supports :message", "validate_confirmation_of"
-
-    it_behaves_like "it supports :case_sensitive", "validate_confirmation_of"
   end
 end

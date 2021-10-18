@@ -22,6 +22,10 @@ module Oughta
 
         private
 
+        def option_string_for_dependent
+          "dependent(:#{options[:dependent]})"
+        end
+
         def option_string_for_polymorphic
           ""
         end

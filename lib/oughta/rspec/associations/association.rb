@@ -37,10 +37,6 @@ module Oughta
           "with_foreign_key(:#{options[:foreign_key]})"
         end
 
-        def option_string_for_dependent
-          "dependent(:#{options[:dependent]})"
-        end
-
         def option_string_for_inverse_of
           "inverse_of(#{options[:inverse_of].inspect})"
         end

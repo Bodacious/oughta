@@ -2,7 +2,8 @@
 
 require "spec_helper"
 
-RSpec.describe Oughta::RSpec::Associations::HasAndBelongsToManyAssociation, type: :association do
+RSpec.describe Oughta::RSpec::Associations::HasAndBelongsToManyAssociation,
+               type: :association do
   let(:association_name) { :test_classes }
 
   describe "#to_shoulda" do

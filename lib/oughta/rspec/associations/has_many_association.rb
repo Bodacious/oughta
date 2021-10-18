@@ -4,8 +4,11 @@ module Oughta
   module RSpec
     module Associations
       require_relative "association"
+      require_relative "has_association"
 
       class HasManyAssociation < Association
+        include HasAssociation
+
         MACRO_TEMPLATE = "have_many(:%{association_name})"
 
         supports_options :class_name,
@@ -24,14 +27,6 @@ module Oughta
 
         private
 
-        def option_string_for_through
-          "through(#{options[:through].inspect})"
-        end
-
-        def option_string_for_source
-          "source(#{options[:source].inspect})"
-        end
-
         def index_errors
           "index_errors(#{options[:index_errors]})"
         end
@@ -40,28 +35,12 @@ module Oughta
           ""
         end
 
-        def option_string_for_dependent
-          "dependent(:#{options[:dependent]})"
-        end
-
-        def option_string_for_primary_key
-          "with_primary_key(:#{options[:primary_key]})"
-        end
-
         def option_string_for_counter_cache
           "counter_cache(#{options[:counter_cache].inspect})"
         end
 
         def option_string_for_touch
           "touch(#{options[:touch]})"
-        end
-
-        def option_string_for_required
-          if options[:required] == true
-            "required"
-          else
-            "optional"
-          end
         end
 
         def option_string_for_optional
