@@ -248,3 +248,12 @@ RSpec.shared_examples "it supports :index_errors" do |_macro|
     it(&test_body)
   end
 end
+RSpec.shared_examples "it supports :join_table" do |_macro|
+  context "when :through is present" do
+    let(:result_string) { ".join_table(:test_classes)" }
+
+    let(:options) { { join_table: :test_classes } }
+
+    it(&test_body)
+  end
+end

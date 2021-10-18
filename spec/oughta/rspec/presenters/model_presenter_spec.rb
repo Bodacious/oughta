@@ -22,6 +22,8 @@ RSpec.describe Oughta::RSpec::Presenters::ModelPresenter, type: :presenter do
 
       has_many :things, dependent: :destroy
 
+      has_and_belongs_to_many :widgets, join_table: :test_model_widgets
+
       belongs_to :test_class, required: true
 
       validates :honeypot, absence: true
@@ -76,6 +78,9 @@ RSpec.describe Oughta::RSpec::Presenters::ModelPresenter, type: :presenter do
 
   describe "#rspec_association_assertions" do
     subject { described_class.new(test_model).rspec_association_assertions }
+
+    it { is_expected.to include("should have_and_belong_to_many(:widgets)"\
+                                ".join_table(:test_model_widgets)") }
 
     it { is_expected.to include("should belong_to(:test_class).required") }
 

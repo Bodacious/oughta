@@ -32,10 +32,6 @@ module Oughta
           "source(#{options[:source].inspect})"
         end
 
-        def option_string_for_validate
-          "validate(#{options[:validate]})"
-        end
-
         def index_errors
           "index_errors(#{options[:index_errors]})"
         end
@@ -58,10 +54,6 @@ module Oughta
 
         def option_string_for_touch
           "touch(#{options[:touch]})"
-        end
-
-        def option_string_for_autosave
-          "autosave(#{options[:autosave]})"
         end
 
         def option_string_for_required

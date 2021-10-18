@@ -17,6 +17,14 @@ module Oughta
 
         private
 
+        def option_string_for_autosave
+          "autosave(#{options[:autosave]})"
+        end
+
+        def option_string_for_validate
+          "validate(#{options[:validate]})"
+        end
+
         def option_string_for_index_errors
           "index_errors(#{options[:index_errors]})"
         end
