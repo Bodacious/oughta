@@ -42,12 +42,12 @@ RSpec.describe Oughta::Generators::ModelSpecGenerator, type: :generator do
 
     it "includes a block of validations" do
       generate_file
-      expect(generated_file).to include(%(describe "validations" do))
+      expect(generated_file).to include(%(context "validations" do))
     end
 
     it "includes a block of validations" do
       generate_file
-      expect(generated_file).to include(%(describe "associations" do))
+      expect(generated_file).to include(%(context "associations" do))
     end
   end
 

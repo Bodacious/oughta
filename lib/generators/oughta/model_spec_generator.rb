@@ -10,11 +10,11 @@ module Oughta
 
       ##
       # Opening code for the associations description block
-      DESCRIBE_ASSOCIATIONS_OPEN = %(describe "associations" do\n)
+      DESCRIBE_ASSOCIATIONS_OPEN = %(context "associations" do\n)
 
       ##
       # Opening code for the validations description block
-      DESCRIBE_VALIDATIONS_OPEN = %(describe "validations" do\n)
+      DESCRIBE_VALIDATIONS_OPEN = %(context "validations" do\n)
 
       source_root File.expand_path("templates", __dir__)
 
@@ -50,14 +50,14 @@ module Oughta
 
       def association_namespace_block
         <<~RUBY
-          describe "associations" do
+          #{DESCRIBE_ASSOCIATIONS_OPEN}
           end
         RUBY
       end
 
       def validation_namespace_block
         <<~RUBY
-          describe "validations" do
+          #{DESCRIBE_VALIDATIONS_OPEN}
           end
         RUBY
       end
