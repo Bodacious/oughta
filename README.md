@@ -7,6 +7,8 @@ generating a lot of the test files and assertions for you.
 
 Using the collection of matchers from [Thoughtbot's Shoulda](https://github.com/thoughtbot/shoulda "Shoulda by Thoughtbot"), oughta will parse your model code and oughta-matically generate assertions for your existing code.
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/d888832c2964be09cc54/maintainability)](https://codeclimate.com/github/Bodacious/oughta/maintainability)
+
 ## Example
 
 Suppose you have a model like this:
