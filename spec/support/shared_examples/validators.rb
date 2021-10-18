@@ -112,7 +112,7 @@ end
 
 RSpec.shared_examples "it supports :case_sensitive" do |_macro|
   context "when :case_sensitive option is not set" do
-    let(:result_string) { ".case_sensitive" }
+    let(:absent_string) { ".case_sensitive" }
 
     let(:options) { {} }
 

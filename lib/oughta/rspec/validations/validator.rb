@@ -35,8 +35,6 @@ module Oughta
         def option_string_for_case_sensitive
           if options[:case_sensitive] == false
             "case_insensitive"
-          else
-            "case_sensitive"
           end
         end
       end
